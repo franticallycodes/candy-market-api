@@ -44,20 +44,20 @@ namespace CandyMarket.Api
                 app.UseDeveloperExceptionPage();
             }
 
-          //  app.UseHttpsRedirection();
+            app.UseCors("MyPolicy");
+
+            app.UseHttpsRedirection();
 
             app.UseRouting();
 
-           // app.UseAuthorization();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
 
-            app.UseCors("MyPolicy");
-
-           app.UseMvc();
+           
         }
     }
 }

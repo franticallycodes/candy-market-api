@@ -11,17 +11,23 @@ class CandyList extends React.Component {
 
   componentDidMount(){
     candyRequests.getAllCandy().then(data => {
-      console.log(data);
+
       let allCandy = [...data];
       this.setState({candy: allCandy});
       
     })
   }
 
+  showAllCandy = () => {
+    const allCandy = [...this.state.candy];
+
+    return allCandy.map(value => <div>{value.name}</div>);
+  }
+
   render() {
     return (
       <div>
-
+        {this.showAllCandy()}
       </div>
     );
   }
